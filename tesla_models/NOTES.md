@@ -11,6 +11,7 @@ show the list of tesla-models
 4. Roadster - Not Available
 
 What model do you want to learn more about?
+<<<<<<< HEAD
 
 What is a model?
 
@@ -20,3 +21,5 @@ What is a model?
 4. accelaration_speed
 5. horsepower
 6. top_speed
+=======
+>>>>>>> eb87841330ef8e357b9eb38f9f846543f17d7b35

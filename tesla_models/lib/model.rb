@@ -4,12 +4,12 @@ class TeslaModels::Model
 
   def self.all
     # should return all models
-    puts <<-DOC.gsub /^\s*/, ''
-    1. Model 3 - Available - $36,000
-    2. Model S - Available - $75,700
-    3. Model X - Available - $80,700
-    4. Roadster - Not Available
-    DOC
+    #puts <<-DOC.gsub /^\s*/, ''
+    #1. Model 3 - Available - $36,000
+    #2. Model S - Available - $75,700
+    #3. Model X - Available - $80,700
+    #4. Roadster - Not Available
+    #DOC
 
     model_1 = self.new
     model_1.name = "Model 3"

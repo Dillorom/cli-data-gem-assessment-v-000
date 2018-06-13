@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Dillorom Abdulloeva'"]
   spec.email         = ["'dabdulloeva@gmail.com'"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{CLI to find Tesla models.}
+  spec.description   = %q{CLI gem lets users to list Tesla models and further explore details of each model.}
+  spec.homepage      = "https://github.com/Dillorom/cli-data-gem-assessment-v-000"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
