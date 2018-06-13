@@ -11,3 +11,12 @@ show the list of tesla-models
 4. Roadster - Not Available
 
 What model do you want to learn more about?
+
+What is a model?
+
+1. name
+2. price
+3. url
+4. accelaration_speed
+5. horsepower
+6. top_speed

@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './lib/tesla_models'
+require './lib/tesla_models.rb'
 
 TeslaModels::CLI.new.call
