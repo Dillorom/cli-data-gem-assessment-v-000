@@ -3,13 +3,18 @@ class TeslaModels::Model
   attr_accessor :name, :availability, :price, :url
 
   def self.all
-    # should return all models
-    #puts <<-DOC.gsub /^\s*/, ''
-    #1. Model 3 - Available - $36,000
-    #2. Model S - Available - $75,700
-    #3. Model X - Available - $80,700
-    #4. Roadster - Not Available
-    #DOC
+    self.scrape_all
+  end
+
+  def self.scrape_all
+    models = []
+    models << self
+
+    doc = Nokogiri::HTML(open("https://www.caranddriver.com/tesla"))
+    binding.pry
+    models
+
+
 
     model_1 = self.new
     model_1.name = "Model 3"
