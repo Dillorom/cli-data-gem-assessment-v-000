@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Dillorom Abdulloeva'"]
   spec.email         = ["'dabdulloeva@gmail.com'"]
 
-  spec.summary       = %q{CLI to find Tesla models.}
-  spec.description   = %q{CLI gem lets users to list Tesla models and further explore details of each model.}
+  spec.summary       = %q{CLI app that lists Tesla models.}
+  spec.description   = %q{CLI app lets a user to list Tesla Models, and get detailed information about each model.}
   spec.homepage      = "https://github.com/Dillorom/cli-data-gem-assessment-v-000"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -33,4 +33,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "pry"
+  spec.add_dependency "nokogiri"
 end

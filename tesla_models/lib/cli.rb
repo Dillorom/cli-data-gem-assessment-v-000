@@ -8,36 +8,29 @@ class TeslaModels::CLI
   end
 
   def list_models
-    puts <<-DOC.gsub /^\s*/, ''
-    1. Model 3 - Available - $36,000
-    2. Model S - Available - 75,700
-    3. Model X - Available - 80,700
-    4. Roadster - Not Available
-    DOC
+    puts "Here is the list of Tesla Models:"
+    @models = TeslaModels::Model.all
+    @models.each.with_index(1) do |model, i|
+      puts "#{i}. #{model.name} - #{model.price} - #{model.availability}"
+    end
   end
 
   def menu
-
     input = nil
     while input != "exit"
       puts "Enter the number of the model you would like to to know more about or type list to see the models or type exit to exit:"
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "More about Model 3"
-      when "2"
-        puts "More about Model S"
-      when "3"
-        puts "More about Model X"
-      when "4"
-        puts "More about Roadster"
-      when "list"
-        list_models
-      else
-        puts "Invalid entry. Please, type list to see the list of models."
-      end
+        if input.to_i > 0
+          the_model = @models[input.to_i-1]
+          puts "#{the_model.name} - #{the_model.price} - #{the_model.availability}"
+        elsif input == "list"
+          list_models
+        else
+          puts "Invalid entry. Please, type list to see the list of models."
+        end
     end
   end
+
 
   def goodbye
     puts "Thank you for visiting us! GoodBye!"
