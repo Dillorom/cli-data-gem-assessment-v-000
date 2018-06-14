@@ -1,6 +1,7 @@
+require 'pry'
 class TeslaModels::Model
 
-  attr_accessor :name, :availability, :price, :url
+  attr_accessor :name, :availability, :price, :url, :acceleration_speed, :horsepower, :top_speed
 
   @@all = []
 
@@ -13,6 +14,19 @@ class TeslaModels::Model
     @@all
   end
 
+  # def scraper
+  #   doc = Nokogiri::HTML(open("https://www.caranddriver.com/tesla"))
+  #   doc.search(".car-card").each do |card|
+  #     model = card.search(".car-model")
+  #     url = card.serach(".car-link")
+  #
+  #     car_page = Nokogiri::HTML(open(url))
+  #     speed = car_page.search(".car-speed")
+  #
+  #     Car.new(model, speed)
+  #   end
+  # end
+
   def self.scrape_all
     models = []
     #models << self
@@ -21,18 +35,27 @@ class TeslaModels::Model
     doc.search("h2 a").each do |title|
       model = self.new(name)
       model.name = title.attributes["title"].value
-      main_url = "https://www.caranddriver.com"
-      model.url = main_url << title.attributes["href"].value
+      main_url = "https://www.caranddriver.com#{ title.attributes["href"].value }"
+      model.url = main_url
       model.availability = true
-      model.price = title.search("div .flex-shrink-none").first.children[1].text
-    end
+      page = Nokogiri::HTML(open(main_url))
+      model.price = page.search(".mb2")[1].text
+      model.acceleration_speed = page.search(".f20")[0].text#{}"#{"sec"}"
+      model.horsepower = page.search(".f20")[1].text
+      model.top_speed = page.search(".f20")[2].text
 
+      models.push(model)
+      binding.pry
+      #model.price = title.search("div .flex-shrink-none").first.children[1].text
+    end
+  models
+  binding.pry
 
     # name= doc.search("h2 a").first.attributes["title"].value
     # price = doc.search("div .flex-shrink-none").first.children[1].tex
 
 
-#binding.pry
+
 
 
     # name =
