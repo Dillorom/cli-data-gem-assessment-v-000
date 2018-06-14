@@ -25,6 +25,8 @@ class TeslaModels::CLI
           puts "#{the_model.name} - #{the_model.price} - #{the_model.availability}"
         elsif input == "list"
           list_models
+        elsif input == "exit"
+          break
         else
           puts "Invalid entry. Please, type list to see the list of models."
         end
