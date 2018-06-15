@@ -2,6 +2,6 @@
 
 require './lib/tesla_models.rb'
 require "bundler/setup"
-require "tesla_models"
+
 
 TeslaModels::CLI.new.call
