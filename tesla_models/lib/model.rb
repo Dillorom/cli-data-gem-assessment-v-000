@@ -37,9 +37,6 @@ class TeslaModels::Model
         model.horsepower = page.search(".f20")[1].text 
         model.top_speed = page.search(".f20")[2].text 
       end
-    
-      
-
       models.push(model)
     end
   models
