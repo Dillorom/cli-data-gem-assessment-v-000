@@ -1,4 +1,5 @@
 tesla-models
+
 - A command line interface for tesla tesla-models
 
 user types tesla-models
@@ -10,10 +11,11 @@ show the list of tesla-models
 3. Model X - Available - 80,700
 4. Roadster - Not Available
 
-What model do you want to learn more about?
-<<<<<<< HEAD
+Menu: What model do you want to learn more about?
+
 
 What is a model?
+It has:
 
 1. name
 2. price
@@ -21,5 +23,3 @@ What is a model?
 4. accelaration_speed
 5. horsepower
 6. top_speed
-=======
->>>>>>> eb87841330ef8e357b9eb38f9f846543f17d7b35
