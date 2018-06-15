@@ -21,10 +21,10 @@ class TeslaModels::Model
     doc.search("h2 a").each do |title|
       model = self.new(name)
       model.name = title.attributes["title"].value
-      main_url = "https://www.caranddriver.com#{ title.attributes["href"].value }"
-      model.url = main_url
+      model_url = "https://www.caranddriver.com#{ title.attributes["href"].value }"
+      #model.url = main_url
     
-      page = Nokogiri::HTML(open(main_url))
+      page = Nokogiri::HTML(open(model_url))
       model.price = page.search(".mb2")[1].text
       if model.price.include?("Not Available")
         model.availability = "not available"
