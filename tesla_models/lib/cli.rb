@@ -1,7 +1,7 @@
 class TeslaModels::CLI
 
   def call
-    puts "Welcome to my the Tesla World!"
+    puts "Welcome to the Tesla World!"
     TeslaModels::Model.scrape_all
     list_models
     menu
@@ -19,7 +19,7 @@ class TeslaModels::CLI
   def menu
     input = nil
     while input != "exit"
-      puts "Enter the number of the model you would like to to know more about or type list to see the models or type exit to exit:"
+      puts "Enter the number of the model you would like to know more about or type list to see the models or type exit to exit:"
       input = gets.strip.downcase
         if input.to_i > 0 && input.to_i < @models.size+1
           the_model = @models[input.to_i-1]
