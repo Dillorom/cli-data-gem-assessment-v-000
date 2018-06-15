@@ -23,12 +23,22 @@ class TeslaModels::Model
       model.name = title.attributes["title"].value
       main_url = "https://www.caranddriver.com#{ title.attributes["href"].value }"
       model.url = main_url
-      model.availability = "available"
+    
       page = Nokogiri::HTML(open(main_url))
       model.price = page.search(".mb2")[1].text
-      model.acceleration_speed = page.search(".f20")[0].text#{}"#{"sec"}"
-      model.horsepower = page.search(".f20")[1].text
-      model.top_speed = page.search(".f20")[2].text
+      if model.price.include?("Not Available")
+        model.availability = "not available"
+        model.acceleration_speed = "N/A"
+        model.horsepower = "N/A"
+        model.top_speed = "N/A"
+      else
+        model.availability = "available"
+        model.acceleration_speed = page.search(".f20")[0].text
+        model.horsepower = page.search(".f20")[1].text 
+        model.top_speed = page.search(".f20")[2].text 
+      end
+    
+      
 
       models.push(model)
     end

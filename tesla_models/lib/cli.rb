@@ -2,8 +2,8 @@ class TeslaModels::CLI
 
   def call
     puts "Welcome to my the Tesla World!"
-    list_models
     TeslaModels::Model.scrape_all
+    list_models
     menu
     goodbye
   end
@@ -23,7 +23,7 @@ class TeslaModels::CLI
       input = gets.strip.downcase
         if input.to_i > 0
           the_model = @models[input.to_i-1]
-          puts "Name: #{the_model.name}, Price: #{the_model.price}, Availability: #{the_model.availability}, Acceleration speed: #{the_model.acceleration_speed}sec, Horsepower: #{the_model.horsepower}hp, Top speed: #{the_model.top_speed}mph, URL: #{the_model.url}"
+          puts "Name: #{the_model.name}, Price: #{the_model.price}, Availability: #{the_model.availability}, Acceleration speed: #{the_model.acceleration_speed}, Horsepower: #{the_model.horsepower}, Top speed: #{the_model.top_speed}, URL: #{the_model.url}"
         elsif input == "list"
           list_models
         elsif input == "exit"
