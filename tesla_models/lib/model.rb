@@ -17,6 +17,7 @@ class TeslaModels::Model
   def self.scrape_all
     models = []
 
+    puts "SCRAPING https://www.caranddriver.com/tesla   **************** "
     doc = Nokogiri::HTML(open("https://www.caranddriver.com/tesla"))
     doc.search("h2 a").each do |title|
       model = self.new(name)
@@ -24,6 +25,7 @@ class TeslaModels::Model
       model_url = "https://www.caranddriver.com#{ title.attributes["href"].value }"
       #model.url = main_url
 
+      puts "SCRAPING #{model_url}   **************** "
       page = Nokogiri::HTML(open(model_url))
       model.price = page.search(".mb2")[1].text
       if model.price.include?("Not Available")
