@@ -14,7 +14,7 @@ class TeslaModels::Model
     @@all
   end
 
-  def self.scrape_all
+  def self.scrape_all 
     models = []
 
     doc = Nokogiri::HTML(open("https://www.caranddriver.com/tesla"))
