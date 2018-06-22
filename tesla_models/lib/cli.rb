@@ -2,7 +2,7 @@ class TeslaModels::CLI
 
   def call
     puts "Welcome to the Tesla World!"
-    TeslaModels::Model.scrape_all
+    TeslaModels::Scrape.scrape_all
     list_models
     menu
     goodbye
