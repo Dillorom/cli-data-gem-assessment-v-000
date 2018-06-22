@@ -42,4 +42,4 @@ class TeslaModels::Model
   models
   end
 
-end
+end 
