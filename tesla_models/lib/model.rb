@@ -14,7 +14,7 @@ class TeslaModels::Model
     @@all
   end
 
-  def self.scrape_all 
+  def self.scrape_all
     models = []
 
     doc = Nokogiri::HTML(open("https://www.caranddriver.com/tesla"))
@@ -23,7 +23,7 @@ class TeslaModels::Model
       model.name = title.attributes["title"].value
       model_url = "https://www.caranddriver.com#{ title.attributes["href"].value }"
       #model.url = main_url
-    
+
       page = Nokogiri::HTML(open(model_url))
       model.price = page.search(".mb2")[1].text
       if model.price.include?("Not Available")
@@ -34,12 +34,12 @@ class TeslaModels::Model
       else
         model.availability = "available"
         model.acceleration_speed = page.search(".f20")[0].text
-        model.horsepower = page.search(".f20")[1].text 
-        model.top_speed = page.search(".f20")[2].text 
+        model.horsepower = page.search(".f20")[1].text
+        model.top_speed = page.search(".f20")[2].text
       end
       models.push(model)
     end
   models
   end
 
-end 
+end
