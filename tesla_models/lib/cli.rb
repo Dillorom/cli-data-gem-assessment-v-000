@@ -21,6 +21,7 @@ class TeslaModels::CLI
     while input != "exit"
       puts "Enter the number of the model you would like to know more about or type list to see the models or type exit to exit:"
       input = gets.strip.downcase
+      #between?
         if input.to_i > 0 && input.to_i < @models.size+1
           the_model = @models[input.to_i-1]
           puts "Name: #{the_model.name}, Price: #{the_model.price}, Availability: #{the_model.availability}, Acceleration speed: #{the_model.acceleration_speed}, Horsepower: #{the_model.horsepower}, Top speed: #{the_model.top_speed}, URL: #{the_model.url}"
